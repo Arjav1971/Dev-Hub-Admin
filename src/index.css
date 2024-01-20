@@ -11,3 +11,103 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body{
+  font-family: Roboto, sans-serif;
+
+}
+.ant-Layout{
+  min-height: 100vh;
+}
+
+
+.login-link {
+  background-color: #86cbb6;
+  transition: background 0.3s;
+}
+
+.login-link:hover{
+  background-color:#7abaa7
+}
+.ant-layout .ant-layout-sider {
+  flex: 0 0 300px !important;
+  max-width: 300px !important;
+  min-width: 300px !important;
+  width: 300px !important;
+}
+
+.ant-layout .ant-layout-sider-collapsed {
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+
+/* .logo .sm-logo{
+  display: block;
+ 
+} */
+.logo h2 span{
+  display:none;
+}
+
+
+.logo .lg-logo{
+  display: block;
+  transition: 0.2s;
+}
+
+
+.ant-layout .ant-layout-sider-collapsed .logo .sm-logo{
+  display: block;
+}
+.ant-layout .ant-layout-sider-collapsed .logo .lg-logo{
+  display: none;
+}
+.logo{
+  background-color: #78d3b8;
+  margin:0;
+  height: 64px;
+}
+
+main{
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: transparent !important;
+}
+
+main::-webkit-scrollbar{
+  width:0px;
+}
+
+.ant-menu-title-content{
+
+  font-size: 16px;
+}
+
+/* .user{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+} */
+
+.ant-layout-header h5{
+  line-height: 20px;
+  font-size: 18px;
+}
+.ant-layout-header p{
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.ant-layout-header div .badge{
+  top:16px;
+  right:-6px;
+}
+
+/* .user h5, .user p {
+  margin: 0px; /* Adjust the margin as needed */
+/* } */ 
