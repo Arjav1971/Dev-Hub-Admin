@@ -121,51 +121,52 @@ const Dashboard = () => {
       <div className='d-flex justify-content-between align-items-center gap-3'>
         <div className='d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 rounded-3'>
           <div>
-            <p>Total</p><h4 className='mb-0'>$1100</h4>
+            <p className='desc'>Total</p><h4 className='mb-0 sub-title'>$1100</h4>
           </div>
           <div clasName="d-flex flex-column align-items-end">
             <h6 className='red'><BsArrowDownRight/>32%</h6>
-            <p className='mb-0'>Compared To April 2023</p>
+            <p className='mb-0 desc'>Compared To April 2023</p>
           </div>
         </div>
         <div className='d-flex justify-content-between align-items-end flex-grow-1  bg-white p-3 rounded-3'>
           <div>
-            <p>Total</p><h4 className='mb-0'>$1100</h4>
+            <p className='desc'>Total</p><h4 className='mb-0 sub-title'>$1100</h4>
           </div>
           <div clasName="d-flex flex-column align-items-end">
             <h6 className='red'><BsArrowDownRight/>32%</h6>
-            <p className='mb-0'>Compared To April 2023</p>
+            <p className='mb-0 desc'>Compared To April 2023</p>
           </div>
         </div>
         <div className='d-flex justify-content-between align-items-end flex-grow-1  bg-white p-3 rounded-3'>
           <div>
-            <p>Total</p><h4 className='mb-0'>$1100</h4>
+            <p className='desc'>Total</p><h4 className='mb-0 sub-title'>$1100</h4>
           </div>
           <div clasName="d-flex flex-column align-items-end">
             <h6 className='green'><BsArrowUpRight/>32%</h6>
-            <p className='mb-0'>Compared To April 2023</p>
+            <p className='mb-0 desc'>Compared To April 2023</p>
           </div>
         </div>
       </div>
-      <div className='mt-4'>
-        <h3 className='mb-4'>Income Statics</h3>
-        <div>
-          <Column {...config} />
+      <div className='mt-4 flex-grow-1'>
+          <h3 className='mb-4 title'>Income Statics</h3>
+          <div>
+            <Column {...config} />
+          </div>
         </div>
-      </div>
-      <div className='mt-4'>
-        <h3 className='mb-4'>Recent Orders</h3>
-        <div>
-          <Table columns={columns} dataSource={data1} />
+        <div className='mt-4 flex-grow-1'>
+          <h3 className='mb-4 title'>Recent Orders</h3>
+          <div>
+            <Table columns={columns} dataSource={data1} />
+          </div>
         </div>
-      </div>
-      <div className='my-4'>
+     
+      {/* <div className='my-4'>
         <h3 mb-4>Recent Reviews</h3>
         <div>
           <div></div>
           <div></div>
         </div>
-      </div>
+      </div> */}
       
     </div>
   )

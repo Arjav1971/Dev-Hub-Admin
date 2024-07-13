@@ -1,5 +1,15 @@
 import React from 'react'
 import {Table } from 'antd';
+import { useEffect,useState } from 'react';
+
+import { getCategories,resetState,deleteCategory } from '../features/pcategory/pcategorySlice';
+import { useDispatch,useSelector} from 'react-redux';
+import {Link} from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import CustomModal from '../components/CustomModal';
+
+
 const columns = [
     {
       title: 'SNo',
@@ -8,32 +18,66 @@ const columns = [
     {
       title: 'Name',
       dataIndex: 'name',
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ['ascend', 'descend'],
     },
     {
-      title: 'Product',
-      dataIndex: 'product',
+      title: 'Action',
+      dataIndex: 'action',
     },
-    {
-      title: 'Status',
-      dataIndex: 'status',
-    },
+ 
+    
   ];
+ 
+const Categorylist = () => {
+  const [open, setOpen] = useState(false);
+  const [categoryId,setcategoryId]=useState("");
+  const showModal = (e) => {
+    setOpen(true);
+    setcategoryId(e);
+  };
+  const hideModal = () => {
+    setOpen(false);
+  };
+  const dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(resetState());
+    dispatch(getCategories());
+  },[]);
+  const pCategoryState=useSelector((state)=>state.pCategory.pCategories);
   const data1 = [];
-  for (let i = 0; i < 46; i++) {
+  for (let i = 0; i < pCategoryState.length; i++) {
     data1.push({
-      key: i,
-      name: `Edward King ${i}`,
-      product: 32,
-      status: `London, Park Lane no. ${i}`,
+      key: i+1,
+      name: pCategoryState[i].title,
+      action:(
+        <>
+         <Link to={`/admin/category/${pCategoryState[i]._id}`} className=" fs-3 text-danger" >
+          <FaEdit/>
+         </Link>
+         <button className="ms-3 fs-3 text-danger bg-transparent border-0" onClick={()=>showModal(pCategoryState[i]._id)}>
+          <MdDelete/>
+         </button>
+        </>
+        
+      ),
     });
   }
-const Categorylist = () => {
+  const deleteACategory=(e)=>{
+    dispatch(deleteCategory(e));
+    setOpen(false);
+    setTimeout(()=>{
+      dispatch(getCategories());
+    },100);
+    
+  };
   return (
     <div>
-        <h3 className='mb-4'>Product Categories</h3>
+        <h3 className='mb-4 title'>Product Categories</h3>
         <div>
             <Table columns={columns} dataSource={data1} />
         </div>
+        <CustomModal hideModal={hideModal} open={open} performAction={()=>{deleteACategory(categoryId)}} title="Are you sure you want to delete this product category?"/>
     </div>
   )
 }
