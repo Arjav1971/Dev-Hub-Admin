@@ -13,6 +13,7 @@ import CustomModal from '../components/CustomModal';
 const columns = [
     {
       title: 'SNo',
+      
       dataIndex: 'key',
     },
     {
